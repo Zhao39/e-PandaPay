@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.inter-thin {
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.inter-extralight {
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.inter-light {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.inter-regular {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inter-medium {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.inter-semibold {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.inter-bold {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.inter-extrabold {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.inter-black {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.inter-thin-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.inter-extralight-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.inter-light-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.inter-regular-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.inter-medium-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.inter-semibold-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.inter-bold-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.inter-extrabold-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.inter-black-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.bg-darken {
+    background-color: #131313;
+}
+
+.btn-outline-darken {
+    color: #fff;
+    border-color: #131313;
+    background-color: transparent;
+}
+
+/* hover on darken button */
+.bg-darken:hover {
+    background-color: #1f1e1e;
+}
+
+.text-darken {
+    color: #131313 !important;
+}
+
+.text-darken:hover {
+    color: #1f1e1e !important;
+}
+
+.py-100 {
+    padding-top: 170px;
+    padding-bottom: 150px;
+}
+
+.text-big {
+    font-size: 65px;
+}
+
+/* line height */
+.line-height-1 {
+    line-height: 1.1;
+}
+
+.bg-offwhite {
+    background-color: #fdfdfd;
+}
+
+.mt-10 {
+    margin-top: 130px;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.glass-panel-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.glass-panel-dark:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px 0 rgba(31, 38, 135, 0.3);
+}
+
+.glass-navbar {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-metric {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-metric:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient backgrounds for glassmorphism */
+.glass-bg-primary {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
+.glass-bg-secondary {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+.glass-bg-accent {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+}
+
+/* Frosted glass effect */
+.frosted-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glassmorphism text effects */
+.glass-text {
+    color: #1f51ffee;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.glass-text-muted {
+    color: #1f51ffaa;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive glassmorphism */
+@media (max-width: 768px) {
+    .glass-panel,
+    .glass-card,
+    .glass-metric {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
