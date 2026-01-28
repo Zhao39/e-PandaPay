@@ -1589,7 +1589,7 @@ SMTP_STARTTLS = True
 SMTP_SSL = False
 SMTP_USER = "superset"
 SMTP_PORT = 25
-SMTP_PASSWORD = "superset"  # noqa: S105
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")  # Use empty string for unauthenticated SMTP
 SMTP_MAIL_FROM = "superset@superset.com"
 # If True creates a default SSL context with ssl.Purpose.CLIENT_AUTH using the
 # default system root CA certificates.
@@ -2218,7 +2218,9 @@ GLOBAL_ASYNC_QUERIES_JWT_COOKIE_SAMESITE: None | (Literal["None", "Lax", "Strict
     None
 )
 GLOBAL_ASYNC_QUERIES_JWT_COOKIE_DOMAIN = None
-GLOBAL_ASYNC_QUERIES_JWT_SECRET = "test-secret-change-me"  # noqa: S105
+GLOBAL_ASYNC_QUERIES_JWT_SECRET = os.environ.get(
+    "GLOBAL_ASYNC_QUERIES_JWT_SECRET", "test-secret-change-me"
+)  # Must be at least 32 bytes in production
 GLOBAL_ASYNC_QUERIES_TRANSPORT: Literal["polling", "ws"] = "polling"
 GLOBAL_ASYNC_QUERIES_POLLING_DELAY = int(
     timedelta(milliseconds=500).total_seconds() * 1000
@@ -2248,7 +2250,9 @@ GLOBAL_ASYNC_QUERIES_CACHE_BACKEND = {
 
 # Embedded config options
 GUEST_ROLE_NAME = "Public"
-GUEST_TOKEN_JWT_SECRET = "test-guest-secret-change-me"  # noqa: S105
+GUEST_TOKEN_JWT_SECRET = os.environ.get(
+    "GUEST_TOKEN_JWT_SECRET", "test-guest-secret-change-me"
+)  # Must be changed in production
 GUEST_TOKEN_JWT_ALGO = "HS256"  # noqa: S105
 GUEST_TOKEN_HEADER_NAME = "X-GuestToken"  # noqa: S105
 GUEST_TOKEN_JWT_EXP_SECONDS = 300  # 5 minutes

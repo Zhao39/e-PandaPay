@@ -42,7 +42,12 @@ export function Giphy({ searchTerm, className }: GiphyProps) {
   const id = useFetch({ keyword: searchTerm });
   const [gif, setGif] = useState<IGif | null>(null);
 
-  const gf = new GiphyFetch("X1q3afkDR9WHSZJhLS6H9yYTQMPIWOTK");
+  const apiKey = process.env.GIPHY_API_KEY || process.env.NEXT_PUBLIC_GIPHY_API_KEY || "";
+  if (!apiKey) {
+    console.error("GIPHY_API_KEY environment variable is not set");
+    return <div>Error: GIPHY_API_KEY not configured</div>;
+  }
+  const gf = new GiphyFetch(apiKey);
   useEffect(() => {
     const fetchGif = async () => {
       if (!id) {

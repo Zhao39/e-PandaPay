@@ -12,8 +12,13 @@ export const useFetch = ({ keyword }: HookProps) => {
 
     const fetchGiphy = async () => {
         try {
+            const apiKey = process.env.GIPHY_API_KEY || process.env.NEXT_PUBLIC_GIPHY_API_KEY || "";
+            if (!apiKey) {
+                console.error("GIPHY_API_KEY environment variable is not set");
+                return;
+            }
             const response = await fetch(
-                `https://api.giphy.com/v1/gifs/search?api_key=X1q3afkDR9WHSZJhLS6H9yYTQMPIWOTK&q=${keyword
+                `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword
                     .split(" ")
                     .join("")}&limit=1`
             );

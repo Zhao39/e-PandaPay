@@ -383,9 +383,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     algolia: {
-      appId: 'WR5FASX5ED',
-      apiKey: 'd0d22810f2e9b614ffac3a73b26891fe',
-      indexName: 'superset-apache',
+      appId: process.env.ALGOLIA_APP_ID || 'WR5FASX5ED',
+      apiKey: process.env.ALGOLIA_API_KEY || 'd0d22810f2e9b614ffac3a73b26891fe',
+      indexName: process.env.ALGOLIA_INDEX_NAME || 'superset-apache',
     },
     mermaid: {
       theme: { light: 'neutral', dark: 'dark' },

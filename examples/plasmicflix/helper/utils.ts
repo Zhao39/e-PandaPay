@@ -10,8 +10,12 @@ export const shuffleArray = (unshuffled: any[]) =>
     .map(({ value }) => value);
 
 export const getVideoId = async (movieId: number) => {
+  const apiKey = process.env.TMDB_API_KEY || process.env.NEXT_PUBLIC_TMDB_API_KEY || "";
+  if (!apiKey) {
+    throw new Error("TMDB_API_KEY environment variable is not set");
+  }
   let response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=9beb1634cec80c0b62602a3d1ee9bdf9&language=en-US`
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`
   );
   const videoData: any[] = response.data.results.filter(
     (res: any) => res.site === "YouTube"

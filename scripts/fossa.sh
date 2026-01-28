@@ -23,7 +23,13 @@ curl -s -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fo
 
 # This key is a push-only API key, also recommended for public projects
 # https://docs.fossa.com/docs/api-reference#section-push-only-api-token
-export FOSSA_API_KEY="${FOSSA_API_KEY:-f72e93645bdfeab94bd227c7bbdda4ef}"
+# Set FOSSA_API_KEY environment variable before running this script
+if [ -z "$FOSSA_API_KEY" ]; then
+    echo "Error: FOSSA_API_KEY environment variable is not set"
+    echo "Please set it before running this script: export FOSSA_API_KEY=your_key"
+    exit 1
+fi
+export FOSSA_API_KEY
 fossa init
 fossa analyze
 fossa test | echo "Ok" # silenced fossa on 2020-10-04 it was acting up

@@ -48,8 +48,12 @@ export function MovieGrid(props: MovieGridProps) {
 }
 
 export async function getMovieCollection(category_id: string) {
+  const apiKey = process.env.TMDB_API_KEY || process.env.NEXT_PUBLIC_TMDB_API_KEY || "";
+  if (!apiKey) {
+    throw new Error("TMDB_API_KEY environment variable is not set");
+  }
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${category_id}?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+    `https://api.themoviedb.org/3/movie/${category_id}?api_key=${apiKey}`
   );
   const data =
     category_id !== "now_playing"
@@ -59,24 +63,24 @@ export async function getMovieCollection(category_id: string) {
   const collection = data.slice(0, data.length - (data.length % 6));
   const collectionWithExtraData = collection.map(async (movie: Movie) => {
     let response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=9beb1634cec80c0b62602a3d1ee9bdf9&language=en-US`
+      `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${apiKey}&language=en-US`
     );
     const videoData: any[] = response.data.results.filter(
       (res: any) => res.site === "YouTube"
     );
 
     response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+      `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${apiKey}`
     );
     const cast: any[] = response.data.cast;
 
     response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+      `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}`
     );
     const movieDetails = response.data;
 
     response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}/release_dates?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+      `https://api.themoviedb.org/3/movie/${movie.id}/release_dates?api_key=${apiKey}`
     );
     const movieCertification: any[] = response.data.results;
     const certification = movieCertification.some((v) => v.iso_3166_1 === "US")
@@ -85,7 +89,7 @@ export async function getMovieCollection(category_id: string) {
       : movieCertification[0].release_dates[0].certification;
 
     response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+      `https://api.themoviedb.org/3/movie/${movie.id}/similar?api_key=${apiKey}`
     );
     const similar: any[] = response.data.results;
 

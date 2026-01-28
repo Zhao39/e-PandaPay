@@ -2,8 +2,8 @@ import React from "react";
 
 const BUTTON_ID = "cloudinary-button";
 const CLOUDINARY_SCRIPT = "https://media-library.cloudinary.com/global/all.js";
-const CLOUDINARY_CLOUD_NAME = "YOUR_CLOUD_NAME";
-const CLOUDINARY_API_KEY = "YOUR_API_KEY";
+const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "YOUR_CLOUD_NAME";
+const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY || process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY || "YOUR_API_KEY";
 
 function loadCloudinary(
   studioDocument: Document,

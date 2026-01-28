@@ -266,8 +266,13 @@ export const FetchMovie = (props: FetchMovieProps) => {
 
   useEffect(() => {
     (async () => {
+      const apiKey = process.env.TMDB_API_KEY || process.env.NEXT_PUBLIC_TMDB_API_KEY || "";
+      if (!apiKey) {
+        console.error("TMDB_API_KEY environment variable is not set");
+        return;
+      }
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=9beb1634cec80c0b62602a3d1ee9bdf9`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
       );
       const videoId = await getVideoId(response.data.id);
       setMovie({
